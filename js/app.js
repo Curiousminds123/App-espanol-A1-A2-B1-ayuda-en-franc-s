@@ -120,7 +120,7 @@
   const isDone = m => !!(S.done[m.id] && S.done[m.id].pass);
   const imageTopics = [
     {
-      ids: ["a1-ser", "a1-fam", "a2-ser", "b1-emoc"],
+      ids: ["a1-ser", "a1-fam", "a1-refl", "a1-saludos", "a2-ser", "a2-imperf", "b1-emoc", "b1-subj"],
       title: "Una familia comparte una comida",
       alt: "Una familia de cinco personas comparte una comida con varios platos en la mesa.",
       src: "assets/img/descriptions/family.jpg",
@@ -130,8 +130,8 @@
       phrases: [["La familia está comiendo…", "La famille est en train de manger…"], ["En el centro de la mesa hay…", "Au centre de la table, il y a…"], ["Cada persona tiene…", "Chaque personne a…"]]
     },
     {
-      ids: ["a1-casa"],
-      title: "Un salón élégant et ses meubles",
+      ids: ["a1-casa", "a1-art", "b1-cond"],
+      title: "Un salón elegante y sus muebles",
       alt: "Un salon jaune richement meublé, avec sièges, tableaux et décoration.",
       src: "assets/img/descriptions/home.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Yellow_Drawing_Room_at_Tatton_Hall-geograph-3983431.jpg",
@@ -140,7 +140,7 @@
       phrases: [["La habitación está decorada con…", "La pièce est décorée avec…"], ["En el centro de la sala…", "Au centre de la pièce…"], ["Hay varios / varias…", "Il y a plusieurs…"]]
     },
     {
-      ids: ["a1-comida", "a1-gustar", "a2-rest"],
+      ids: ["a1-comida", "a1-gustar", "a2-rest", "a2-pron", "b1-imp"],
       title: "Tapas servidas en una mesa",
       alt: "Varios platos de tapas preparados para compartir.",
       src: "assets/img/descriptions/tapas.jpg",
@@ -150,7 +150,7 @@
       phrases: [["En la mesa hay…", "Sur la table, il y a…"], ["La comida parece…", "Le repas semble…"], ["Las personas están comiendo…", "Les personnes sont en train de manger…"]]
     },
     {
-      ids: ["a1-ciudad", "a1-estar", "a2-viajes"],
+      ids: ["a1-ciudad", "a1-estar", "a1-num", "a1-ira", "a2-viajes", "a2-indef", "a2-comp", "b1-porpara"],
       title: "Una vista urbana de Barcelona",
       alt: "La Torre Glòries destaca sobre los edificios de Barcelona.",
       src: "assets/img/descriptions/city.jpg",
@@ -190,7 +190,7 @@
       phrases: [["Los jugadores están…", "Les joueurs sont en train de…"], ["En el centro de la imagen…", "Au centre de l’image…"], ["Parece un partido…", "On dirait un match…"]]
     },
     {
-      ids: ["a2-trabajo"],
+      ids: ["a1-pres", "a2-trabajo", "b1-laboral"],
       title: "Una clase en la universidad",
       alt: "Un profesor y varios estudiantes en un aula.",
       src: "assets/img/descriptions/classroom.jpg",
@@ -200,7 +200,7 @@
       phrases: [["En primer plano…", "Au premier plan…"], ["El profesor está explicando…", "Le professeur est en train d’expliquer…"], ["Los estudiantes parecen…", "Les étudiants semblent…"]]
     },
     {
-      ids: ["a2-natur", "b1-medio"],
+      ids: ["a1-tiempo", "a2-natur", "b1-medio"],
       title: "Un paisaje de bosque",
       alt: "Paisaje de un bosque con árboles y vegetación.",
       src: "assets/img/descriptions/nature.jpg",
@@ -210,7 +210,7 @@
       phrases: [["En el paisaje hay…", "Dans le paysage, il y a…"], ["El bosque parece…", "La forêt semble…"], ["En el fondo se ven…", "À l’arrière-plan, on voit…"]]
     },
     {
-      ids: ["b1-tec"],
+      ids: ["b1-tec", "b1-fut"],
       title: "Un ordenador sobre una mesa",
       alt: "Un ordenador portátil junto a unos libros sobre una mesa.",
       src: "assets/img/descriptions/technology.jpg",
@@ -220,7 +220,7 @@
       phrases: [["Sobre la mesa hay…", "Sur la table, il y a…"], ["La persona está usando…", "La personne utilise…"], ["Este dispositivo sirve para…", "Cet appareil sert à…"]]
     },
     {
-      ids: ["b1-cultura"],
+      ids: ["a1-irr", "a2-irr", "b1-cultura", "b1-frases"],
       title: "Un festival al aire libre",
       alt: "Público reunido en un festival al aire libre.",
       src: "assets/img/descriptions/festival.jpg",
@@ -230,7 +230,7 @@
       phrases: [["La gente está celebrando…", "Les gens célèbrent…"], ["Hay mucha gente…", "Il y a beaucoup de monde…"], ["El ambiente parece…", "L’ambiance semble…"]]
     },
     {
-      ids: ["b1-medios", "b1-indir"],
+      ids: ["a2-perf", "b1-pasados", "b1-plusc", "b1-medios", "b1-indir"],
       title: "Una persona lee el periódico",
       alt: "Un hombre lee un periódico en un espacio público.",
       src: "assets/img/descriptions/news.jpg",
@@ -347,9 +347,10 @@
     const L = levelOf(view.lvl) || LEVELS[0];
     const total = DATA.length, done = DATA.filter(isDone).length;
     let h = `<div class="hero"><img src="assets/img/mascot.svg" alt="Sol, la mascota de Camino">
-      <div><h1>¡Hola! Bienvenido/a a Camino al Español</h1>
-      <p class="fr">Votre parcours d’espagnol, du niveau A1 au B1 · ${total} modules de grammaire, vocabulaire, exercices, lecture et expression orale.</p>
-      <p><b>${done}/${total}</b> módulos completados · Modo: <b>${S.mode === "prog" ? "🔒 desbloqueo progresivo" : "🔓 todo abierto"}</b></p></div></div>
+      <div class="hero-copy"><span class="hero-kicker">ESPAÑOL A1–B1 · APPRENDRE À TON RYTHME</span>
+      <h1>¡Hola! Bienvenido/a a Camino al Español</h1>
+      <p class="fr">Votre parcours d’espagnol, du niveau A1 au B1 · ${total} modules pour apprendre et pratiquer.</p>
+      <div class="hero-meta"><span><b>${done}/${total}</b> módulos completados</span><span class="mode-summary">${S.mode === "prog" ? "🔒 Desbloqueo progresivo" : "🔓 Todo abierto"}</span></div></div></div>
       <div class="lvl-tabs">${LEVELS.map(x => `<button class="lvl-tab ${x.id === L.id ? "on" : ""} ${levelOpen(x.id) ? "" : "lock"}" data-l="${x.id}"><img src="${x.img}" alt="">${x.id}${levelOpen(x.id) ? "" : " 🔒"}</button>`).join("")}</div>
       <div class="lvl-banner" style="background:${L.color}"><img src="${L.img}" alt="">
       <div style="flex:1"><h2>Nivel ${L.name}</h2><p>${L.desc} <i class="fr">${L.descFr}</i></p><div class="pbar"><i style="width:${levelPct(L.id)}%"></i></div></div></div>`;
@@ -359,14 +360,15 @@
     } else {
       h += `<div class="tracks">`;
       [["g", "📘 Gramática"], ["v", "🖼️ Vocabulario"]].forEach(([k, n]) => {
-        h += `<div class="path"><h3>${n}</h3>`;
-        track(L.id, k).forEach((m, i) => {
-          const off = Math.round(Math.sin(i * 1.1) * 45), ok = modOpen(m), d = isDone(m);
-          h += `<button class="node ${k === "v" ? "v" : ""} ${d ? "done" : ""} ${ok ? "" : "lock"}" style="transform:translateX(${off}px)" data-mod="${m.id}" title="${esc(m.t)}">${ok ? m.ic : "🔒"}${d ? '<span class="chk">✅</span>' : ""}</button><div class="lab" style="transform:translateX(${off}px)">${i + 1}. ${esc(m.t)}</div>`;
+        const modules = track(L.id, k);
+        h += `<section class="path track-card"><h3>${n}<span>${modules.length} temas</span></h3><div class="lesson-grid">`;
+        modules.forEach((m, i) => {
+          const ok = modOpen(m), d = isDone(m);
+          h += `<div class="lesson-node"><button class="node ${k === "v" ? "v" : ""} ${d ? "done" : ""} ${ok ? "" : "lock"}" data-mod="${m.id}" title="${esc(m.t)}" aria-label="${ok ? "Abrir" : "Bloqueado"}: ${esc(m.t)}">${ok ? m.ic : "🔒"}${d ? '<span class="chk">✓</span>' : ""}</button><div class="lab">${i + 1}. ${esc(m.t)}</div></div>`;
         });
-        h += `</div>`;
+        h += `</div></section>`;
       });
-      h += `</div><div class="path"><h3>🏆 Examen de nivel</h3><button class="node exam" data-go="#/examen/${L.id}">🏆${S.exam[L.id] ? '<span class="chk">✅</span>' : ""}</button><div class="lab">Examen ${L.id}${S.exam[L.id] ? " · " + S.exam[L.id] + "%" : ""}</div></div>`;
+      h += `</div><section class="exam-card"><div class="exam-copy"><span>FIN DU NIVEAU · FINAL DE NIVEL</span><h3>🏆 Examen ${L.id}</h3><p>Comprueba lo que has aprendido en este nivel. <i class="fr">Vérifie tout ce que tu as appris.</i></p>${S.exam[L.id] ? `<b class="exam-score">Mejor resultado: ${S.exam[L.id]}%</b>` : ""}</div><button class="btn exam-btn" data-go="#/examen/${L.id}">${S.exam[L.id] ? "Repetir examen" : "Empezar examen"} →</button></section>`;
     }
     h += `<footer class="foot">Camino al Español · A1–B1 · Hecho para estudiantes de ELE 🇪🇸🌎</footer>`;
     main().innerHTML = h;
