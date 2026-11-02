@@ -370,7 +370,7 @@
       });
       h += `</div><section class="exam-card"><div class="exam-copy"><span>FIN DU NIVEAU · FINAL DE NIVEL</span><h3>🏆 Examen ${L.id}</h3><p>Comprueba lo que has aprendido en este nivel. <i class="fr">Vérifie tout ce que tu as appris.</i></p>${S.exam[L.id] ? `<b class="exam-score">Mejor resultado: ${S.exam[L.id]}%</b>` : ""}</div><button class="btn exam-btn" data-go="#/examen/${L.id}">${S.exam[L.id] ? "Repetir examen" : "Empezar examen"} →</button></section>`;
     }
-    h += `<footer class="foot">Camino al Español · A1–B1 · Hecho para estudiantes de ELE 🇪🇸🌎</footer>`;
+    h += `<footer class="foot">Camino al Español · A1–B1 · Hecho para estudiantes de ELE 🇪🇸🌎<br><b>App creada por Ana Hernández Iranzo</b><br><span class="fr">Application créée par Ana Hernández Iranzo</span></footer>`;
     main().innerHTML = h;
     bind();
     $$("[data-l]").forEach(b => b.onclick = () => { view.lvl = b.dataset.l; expanded.add(b.dataset.l); renderNav(); home(); });

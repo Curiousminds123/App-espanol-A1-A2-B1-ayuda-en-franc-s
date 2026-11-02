@@ -1,5 +1,9 @@
 # 🇪🇸 Camino al Español · Français A1–B1
 
+**App creada por Ana Hernández Iranzo.**
+
+*Application créée par Ana Hernández Iranzo.*
+
 Curso interactivo de español para estudiantes de ELE (español como lengua extranjera), del nivel **A1** al **B1**, al estilo de las apps de idiomas: teoría, tarjetas de vocabulario con imágenes, ejercicios con vidas y XP, lectura con audio y tarjetas de expresión oral.
 
 *Parcours interactif d’espagnol (A1 → B1) avec grammaire, cartes de vocabulaire, exercices, lecture audio, expression orale et aide en français.*
