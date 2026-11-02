@@ -149,7 +149,7 @@ input.fill:focus{outline:none;border-color:var(--b)}
 .vf .w{font-weight:900;font-size:16px;margin-top:6px;color:var(--t)}
 .vb{transform:rotateY(180deg);background:var(--sky);font-weight:800;font-size:17px;color:var(--bd)}
 
-/* lectura y speaking */
+/* lectura y expresión oral */
 .reading{font-size:19px;line-height:1.85}
 .reading u{cursor:pointer}
 .image-practice>p{line-height:1.6}

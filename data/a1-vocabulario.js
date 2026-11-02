@@ -56,7 +56,7 @@ window.CAMINO.push(
     { q: "¿Cómo te ___? — Me llamo Diego.", a: ["llamas"], t: "Comment t’appelles-tu ? — Je m’appelle Diego." },
     { q: "¿De dónde ___? — Soy de Colombia. (ser, tú)", a: ["eres"], t: "D’où viens-tu ? — Je viens de Colombie." },
     { q: "—Adiós, hasta ___. (à plus tard)", a: ["luego"], t: "Au revoir, à plus tard." },
-    { q: "Mucho ___. (nice to meet you)", a: ["gusto"], t: "Ravi(e) de te rencontrer." },
+    { q: "Mucho ___. (ravi(e) de te rencontrer)", a: ["gusto"], t: "Ravi(e) de te rencontrer." },
     { w: "Me llamo Carmen y soy de Sevilla.", t: "Je m’appelle Carmen et je viens de Séville." },
     { w: "¿Cómo se llama usted, por favor?", t: "Comment vous appelez-vous, s’il vous plaît ? (formel)" },
     { w: "Te presento a mi amiga Sofía.", t: "Je te présente mon amie Sofía." },

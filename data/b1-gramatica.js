@@ -96,7 +96,7 @@ window.CAMINO.push(
 <p>Cuando llegué a la estación, el tren ya <b>había salido</b>. <span class="fr">Quand je suis arrivé(e) à la gare, le train était déjà parti.</span><br>
 Lucía estaba nerviosa porque nunca <b>había volado</b>. <span class="fr">Lucía était nerveuse parce qu’elle n’avait jamais pris l’avion.</span></p>
 <h3>Ya / todavía no en el pasado</h3>
-<p><b>ya</b> + había… = <i>already</i>: A las diez ya <b>habíamos cenado</b>. <span class="fr">À dix heures, nous avions déjà dîné.</span><br>
+<p><b>ya</b> + había… = <i>déjà</i> : A las diez ya <b>habíamos cenado</b>. <span class="fr">À dix heures, nous avions déjà dîné.</span><br>
 <b>todavía no / aún no</b> + había… = <i>not yet</i>: Cuando me llamaste, todavía no <b>había terminado</b>. <span class="fr">Quand tu m’as appelé(e), je n’avais pas encore terminé.</span></p>
 <div class="tip"><b>Truco / Astuce :</b> Dibuja una línea del tiempo ⬅️: primero pasa la acción en pluscuamperfecto, después la acción en indefinido. <span class="fr">Le plus-que-parfait = le « passé antérieur à un autre passé ».</span> En el habla de muchos países latinoamericanos a veces se usa el indefinido: <i>Cuando llegué, el tren ya salió</i> (informal).</div></div>
 <div class="card"><h3>Errores frecuentes <span class="fr">(erreurs fréquentes)</span></h3>

@@ -120,28 +120,28 @@
   const isDone = m => !!(S.done[m.id] && S.done[m.id].pass);
   const imageTopics = [
     {
-      match: /familia|amig|sentimient|personalidad|pronombre|ser|identidad|presentaci|saludo/i,
-      key: "familia", title: "Una familia posa para una fotografía",
-      alt: "Una familia reunida para una fotografía de grupo.",
+      ids: ["a1-ser", "a1-fam", "a2-ser", "b1-emoc"],
+      title: "Una familia comparte una comida",
+      alt: "Una familia de cinco personas comparte una comida con varios platos en la mesa.",
       src: "assets/img/descriptions/family.jpg",
-      page: "https://commons.wikimedia.org/wiki/File:Russian_Imperial_Family_1913.jpg",
-      credit: "Boasson et Eggler · domaine public",
-      words: [["la familia", "la famille"], ["las personas", "les personnes"], ["el hombre", "l’homme"], ["la mujer", "la femme"], ["estar juntos", "être ensemble"]],
-      phrases: [["En primer plano hay…", "Au premier plan, il y a…"], ["A la derecha / a la izquierda…", "À droite / à gauche…"], ["Parece que…", "On dirait que…"]]
+      page: "https://commons.wikimedia.org/wiki/File:Family_eating_meal.jpg",
+      credit: "National Cancer Institute · domaine public · imagen redimensionada",
+      words: [["la familia", "la famille"], ["la mesa", "la table"], ["los platos", "les assiettes"], ["la comida", "le repas"], ["compartir", "partager"]],
+      phrases: [["La familia está comiendo…", "La famille est en train de manger…"], ["En el centro de la mesa hay…", "Au centre de la table, il y a…"], ["Cada persona tiene…", "Chaque personne a…"]]
     },
     {
-      match: /casa|habitaci|mueble|hogar|art[ií]culo|género/i,
-      key: "casa", title: "Un salón y sus muebles",
-      alt: "Interior de un salón con muebles y decoración.",
+      ids: ["a1-casa"],
+      title: "Un salón élégant et ses meubles",
+      alt: "Un salon jaune richement meublé, avec sièges, tableaux et décoration.",
       src: "assets/img/descriptions/home.jpg",
-      page: "https://commons.wikimedia.org/wiki/File:ARTHUR_B._HOMER_Captain%27s_Living_Room.jpg",
-      credit: "Gary Todd · CC0",
-      words: [["el salón", "le salon"], ["el sofá", "le canapé"], ["la mesa", "la table"], ["la ventana", "la fenêtre"], ["la lámpara", "la lampe"]],
-      phrases: [["La habitación tiene…", "La pièce a…"], ["Al fondo se ve…", "Au fond, on voit…"], ["Hay un / una…", "Il y a un / une…"]]
+      page: "https://commons.wikimedia.org/wiki/File:Yellow_Drawing_Room_at_Tatton_Hall-geograph-3983431.jpg",
+      credit: "David Dixon · CC BY-SA 2.0 · imagen redimensionada",
+      words: [["el salón", "le salon"], ["el sillón", "le fauteuil"], ["el cuadro", "le tableau"], ["la cortina", "le rideau"], ["la decoración", "la décoration"]],
+      phrases: [["La habitación está decorada con…", "La pièce est décorée avec…"], ["En el centro de la sala…", "Au centre de la pièce…"], ["Hay varios / varias…", "Il y a plusieurs…"]]
     },
     {
-      match: /comida|bebida|restaur|cocin|alimenta|gustar/i,
-      key: "comida", title: "Tapas servidas en una mesa",
+      ids: ["a1-comida", "a1-gustar", "a2-rest"],
+      title: "Tapas servidas en una mesa",
       alt: "Varios platos de tapas preparados para compartir.",
       src: "assets/img/descriptions/tapas.jpg",
       page: "https://commons.wikimedia.org/wiki/File:(_Madrid,_Spain,_Tapas_)_best_of_the_best_of_the_best.jpg",
@@ -150,8 +150,8 @@
       phrases: [["En la mesa hay…", "Sur la table, il y a…"], ["La comida parece…", "Le repas semble…"], ["Las personas están comiendo…", "Les personnes sont en train de manger…"]]
     },
     {
-      match: /ciudad|transporte|calle|viaj|hotel|direcci|ir-a|pretérito|pasad/i,
-      key: "ciudad", title: "Una vista urbana de Barcelona",
+      ids: ["a1-ciudad", "a1-estar", "a2-viajes"],
+      title: "Una vista urbana de Barcelona",
       alt: "La Torre Glòries destaca sobre los edificios de Barcelona.",
       src: "assets/img/descriptions/city.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Torre_Agbar_-_Barcelona,_Spain_-_Jan_2007.jpg",
@@ -160,18 +160,18 @@
       phrases: [["A la derecha se encuentra…", "À droite se trouve…"], ["Es una ciudad…", "C’est une ville…"], ["Al fondo hay…", "Au fond, il y a…"]]
     },
     {
-      match: /ropa|compras|tienda|mercado|color/i,
-      key: "ropa", title: "Un mercado de ropa",
-      alt: "Un puesto de ropa en un mercado al aire libre.",
+      ids: ["a2-ropa"],
+      title: "Una tienda llena de ropa",
+      alt: "Una mujer mira prendas en una tienda con percheros llenos y ropa doblada.",
       src: "assets/img/descriptions/clothes.jpg",
-      page: "https://commons.wikimedia.org/wiki/File:A_clothing_market_in_Taiwan_c._1940.tif",
-      credit: "Auteur inconnu · domaine public",
-      words: [["la ropa", "les vêtements"], ["el mercado", "le marché"], ["la tienda", "le magasin"], ["el puesto", "l’étal"], ["comprar", "acheter"]],
-      phrases: [["En el puesto venden…", "Sur l’étal, on vend…"], ["Veo varios / varias…", "Je vois plusieurs…"], ["La persona está buscando…", "La personne cherche…"]]
+      page: "https://commons.wikimedia.org/wiki/File:DFC_0796_A_woman_browsing_shirts_on_a_crowded_clothing_rack_in_a_busy_store_with_mannequins_and_folded_garments_nearby.jpg",
+      credit: "PattayaPatrol · CC BY-SA 4.0 · imagen redimensionada",
+      words: [["la ropa", "les vêtements"], ["la tienda", "le magasin"], ["el perchero", "le portant"], ["la prenda", "le vêtement"], ["comprar", "acheter"]],
+      phrases: [["La tienda está llena de…", "Le magasin est rempli de…"], ["La clienta está mirando…", "La cliente regarde…"], ["Veo varias prendas de…", "Je vois plusieurs vêtements de…"]]
     },
     {
-      match: /salud|cuerpo|m[eé]d|enfermedad|farmacia|doler/i,
-      key: "salud", title: "Una consulta médica",
+      ids: ["a2-salud"],
+      title: "Una consulta médica",
       alt: "Ilustración de una consulta entre un médico y sus pacientes.",
       src: "assets/img/descriptions/doctor.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Thomas_Rowlandson_-_The_Doctor%5Es_Consultation_-_B1975.3.87_-_Yale_Center_for_British_Art.jpg",
@@ -180,8 +180,8 @@
       phrases: [["El médico está…", "Le médecin est en train de…"], ["El paciente parece…", "Le patient semble…"], ["Creo que…", "Je crois que…"]]
     },
     {
-      match: /deporte|f[uú]tbol|tiempo-libre|ocio/i,
-      key: "deporte", title: "Un partido de fútbol",
+      ids: ["a2-ger", "a2-ocio"],
+      title: "Un partido de fútbol",
       alt: "Un grupo de jóvenes juega al fútbol en la calle.",
       src: "assets/img/descriptions/football.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Boys_playing_street_football_in_Egypt.jpg",
@@ -190,8 +190,8 @@
       phrases: [["Los jugadores están…", "Les joueurs sont en train de…"], ["En el centro de la imagen…", "Au centre de l’image…"], ["Parece un partido…", "On dirait un match…"]]
     },
     {
-      match: /escuela|clase|estudio|profesi|trabaj|empleo|educaci/i,
-      key: "clase", title: "Una clase en la universidad",
+      ids: ["a2-trabajo"],
+      title: "Una clase en la universidad",
       alt: "Un profesor y varios estudiantes en un aula.",
       src: "assets/img/descriptions/classroom.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Professor_and_students_in_a_university_classroom_in_Tennessee.jpg",
@@ -200,8 +200,8 @@
       phrases: [["En primer plano…", "Au premier plan…"], ["El profesor está explicando…", "Le professeur est en train d’expliquer…"], ["Los estudiantes parecen…", "Les étudiants semblent…"]]
     },
     {
-      match: /natur|medio[- ]ambiente|clima|tiempo|estaci|d[ií]as|meses?|fecha|hora|n[uú]mero|ecolog|contamin/i,
-      key: "naturaleza", title: "Un paisaje de bosque",
+      ids: ["a2-natur", "b1-medio"],
+      title: "Un paisaje de bosque",
       alt: "Paisaje de un bosque con árboles y vegetación.",
       src: "assets/img/descriptions/nature.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Gillis_van_Coninxloo_-_Forest_Landscape_-_38.70_-_Detroit_Institute_of_Arts.jpg",
@@ -210,8 +210,8 @@
       phrases: [["En el paisaje hay…", "Dans le paysage, il y a…"], ["El bosque parece…", "La forêt semble…"], ["En el fondo se ven…", "À l’arrière-plan, on voit…"]]
     },
     {
-      match: /tecnolog|internet|ordenador|computador|redes/i,
-      key: "tecnologia", title: "Un ordenador sobre una mesa",
+      ids: ["b1-tec"],
+      title: "Un ordenador sobre una mesa",
       alt: "Un ordenador portátil junto a unos libros sobre una mesa.",
       src: "assets/img/descriptions/technology.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Laptop_on_desk_book_stacks_(Unsplash).jpg",
@@ -220,8 +220,8 @@
       phrases: [["Sobre la mesa hay…", "Sur la table, il y a…"], ["La persona está usando…", "La personne utilise…"], ["Este dispositivo sirve para…", "Cet appareil sert à…"]]
     },
     {
-      match: /cultura|fiesta|celebra|tradici|hispan|festiv/i,
-      key: "cultura", title: "Un festival al aire libre",
+      ids: ["b1-cultura"],
+      title: "Un festival al aire libre",
       alt: "Público reunido en un festival al aire libre.",
       src: "assets/img/descriptions/festival.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Festival_crowd_(1431297808).jpg",
@@ -230,8 +230,8 @@
       phrases: [["La gente está celebrando…", "Les gens célèbrent…"], ["Hay mucha gente…", "Il y a beaucoup de monde…"], ["El ambiente parece…", "L’ambiance semble…"]]
     },
     {
-      match: /notic|medio[s]? de comunicaci|period|prensa|per[ií]odico|indirecto/i,
-      key: "actualidad", title: "Una persona lee el periódico",
+      ids: ["b1-medios", "b1-indir"],
+      title: "Una persona lee el periódico",
       alt: "Un hombre lee un periódico en un espacio público.",
       src: "assets/img/descriptions/news.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Old_man_reading_newspaper_early_in_the_morning_at_Basantapur-IMG_6800.jpg",
@@ -240,9 +240,10 @@
       phrases: [["La persona está leyendo…", "La personne est en train de lire…"], ["La noticia trata de…", "La nouvelle parle de…"], ["Según la imagen…", "D’après l’image…"]]
     }
   ];
-  const imageFor = m => imageTopics.find(topic => topic.match.test(`${m.id} ${m.t}`)) || imageTopics[7];
+  const imageFor = m => imageTopics.find(topic => topic.ids.includes(m.id)) || null;
   const imageLicenseUrl = credit => {
     if (credit.includes("CC BY-SA 4.0")) return "https://creativecommons.org/licenses/by-sa/4.0/";
+    if (credit.includes("CC BY-SA 2.0")) return "https://creativecommons.org/licenses/by-sa/2.0/";
     if (credit.includes("CC BY 4.0")) return "https://creativecommons.org/licenses/by/4.0/";
     if (credit.includes("CC BY 2.5")) return "https://creativecommons.org/licenses/by/2.5/";
     if (credit.includes("CC BY 2.0")) return "https://creativecommons.org/licenses/by/2.0/";
@@ -639,21 +640,34 @@
   function imagen(m) {
     const topic = imageFor(m);
     const draft = S.imageDrafts[m.id] || "";
-    rec(m.id).image = rec(m.id).image || 0;
-    main().innerHTML = modHead(m, "imagen") +
-      `<div class="image-practice">
-        <h2>🖼️ ${esc(topic.title)}</h2>
+    const imageMarkup = topic
+      ? `<h2>🖼️ ${esc(topic.title)}</h2>
         <p>Observa la foto y descríbela en español, por escrito o en voz alta. Puedes consultar las pistas en francés o intentar hacerlo sin ayuda.</p>
         <figure class="image-figure">
           <img src="${topic.src}" alt="${esc(topic.alt)}" loading="lazy">
           <figcaption>Imagen: <a href="${topic.page}" target="_blank" rel="noopener noreferrer">Wikimedia Commons · ficha de la imagen</a> — ${esc(topic.credit)} · <a href="${imageLicenseUrl(topic.credit)}" target="_blank" rel="noopener noreferrer">licencia</a></figcaption>
-        </figure>
+        </figure>`
+      : `<h2>🖼️ Describe una imagen</h2>
+        <p>Para este tema no he elegido una foto que encaje: intenta imaginar una escena sencilla o utiliza una imagen propia. También puedes hacer este ejercicio sin pistas.</p>`;
+    const topicWords = topic
+      ? `<h3>Vocabulario visible en la foto</h3>
+          <ul>${topic.words.map(([es, fr]) => `<li><b>${esc(es)}</b> — ${esc(fr)}</li>`).join("")}</ul>`
+      : `<h3>Palabras para organizar la descripción</h3>
+          <ul><li><b>En primer plano</b> — au premier plan</li><li><b>Al fondo</b> — à l’arrière-plan</li><li><b>A la derecha / a la izquierda</b> — à droite / à gauche</li></ul>`;
+    const topicPhrases = topic
+      ? topic.phrases.map(([es, fr]) => `<li><b>${esc(es)}</b><br><span class="fr">${esc(fr)}</span></li>`).join("")
+      : `<li><b>En la imagen hay…</b><br><span class="fr">Sur l’image, il y a…</span></li>
+          <li><b>La persona está…</b><br><span class="fr">La personne est…</span></li>
+          <li><b>Parece que…</b><br><span class="fr">On dirait que…</span></li>`;
+    rec(m.id).image = rec(m.id).image || 0;
+    main().innerHTML = modHead(m, "imagen") +
+      `<div class="image-practice">
+        ${imageMarkup}
         <div class="row"><button class="btn sec" id="toggleHints" aria-expanded="false" aria-controls="imageHints">💡 Mostrar pistas</button></div>
         <div class="card image-hints" id="imageHints" hidden>
-          <h3>Vocabulario visible en la foto</h3>
-          <ul>${topic.words.map(([es, fr]) => `<li><b>${esc(es)}</b> — ${esc(fr)}</li>`).join("")}</ul>
+          ${topicWords}
           <h3>Expresiones para describir la imagen</h3>
-          <ul>${topic.phrases.map(([es, fr]) => `<li><b>${esc(es)}</b><br><span class="fr">${esc(fr)}</span></li>`).join("")}</ul>
+          <ul>${topicPhrases}</ul>
           <h3>Un plan sencillo</h3>
           <ol>
             <li><b>Presenta:</b> En la imagen hay… <span class="fr">— Sur l’image, il y a…</span></li>

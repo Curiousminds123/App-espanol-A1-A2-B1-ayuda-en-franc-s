@@ -309,7 +309,7 @@ Según el periódico… / Al parecer… / Se dice que… <span class="fr">Selon 
     { q: "Los resultados del fútbol están en la sección de…", o: ["economía", "deportes", "opinión"], a: 1, t: "Les résultats de football se trouvent dans la rubrique des sports." },
     { q: "Antes de compartir una noticia, hay que comprobar…", o: ["la fuente", "el anuncio", "la emisora"], a: 0, t: "Avant de partager une information, il faut vérifier la source." },
     { q: "He leído una ___ muy interesante sobre el clima. (piece of news)", a: ["noticia"], t: "J’ai lu une nouvelle très intéressante sur le climat." },
-    { q: "El partido se emite en ___ esta noche. (live)", a: ["directo"], t: "Le match est retransmis en direct ce soir." },
+    { q: "El partido se emite en ___ esta noche. (en direct)", a: ["directo"], t: "Le match est retransmis en direct ce soir." },
     { q: "Mi tía es ___ y trabaja en un diario de Buenos Aires. (journalist)", a: ["periodista"], t: "Ma tante est journaliste et travaille pour un quotidien de Buenos Aires." },
     { q: "Según el pronóstico del ___, mañana va a llover. (météo)", a: ["tiempo"], t: "Selon les prévisions météo, il va pleuvoir demain." },
     { w: "Escucho la radio todas las mañanas.", t: "J’écoute la radio tous les matins." },
