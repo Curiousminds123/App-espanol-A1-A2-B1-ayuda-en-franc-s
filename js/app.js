@@ -116,11 +116,13 @@
   const levelOf = id => LEVELS.find(l => l.id === id);
   const track = (l, k) => DATA.filter(m => m.lvl === l && m.k === k);
   const modsOf = l => DATA.filter(m => m.lvl === l);
+  const trackName = k => ({ g: "Gramática", v: "Vocabulario", f: "Functional language · Funciones comunicativas" }[k] || "Contenido");
+  const trackIcon = k => ({ g: "📘", v: "🖼️", f: "💬" }[k] || "📚");
   const getMod = id => DATA.find(m => m.id === id);
   const isDone = m => !!(S.done[m.id] && S.done[m.id].pass);
   const imageTopics = [
     {
-      ids: ["a1-ser", "a1-fam", "a1-refl", "a1-saludos", "a2-ser", "a2-imperf", "b1-emoc", "b1-subj"],
+      ids: ["a1-ser", "a1-fam", "a1-refl", "a1-saludos", "a2-ser", "a2-imperf", "b1-emoc", "b1-subj", "a1-func-presentarse", "b1-func-opiniones"],
       title: "Una familia comparte una comida",
       alt: "Una familia de cinco personas comparte una comida con varios platos en la mesa.",
       src: "assets/img/descriptions/family.jpg",
@@ -130,7 +132,7 @@
       phrases: [["La familia está comiendo…", "La famille est en train de manger…"], ["En el centro de la mesa hay…", "Au centre de la table, il y a…"], ["Cada persona tiene…", "Chaque personne a…"]]
     },
     {
-      ids: ["a1-casa", "a1-art", "b1-cond"],
+      ids: ["a1-casa", "a1-art", "b1-cond", "a1-func-describir", "a2-func-compras"],
       title: "Un salón elegante y sus muebles",
       alt: "Un salon jaune richement meublé, avec sièges, tableaux et décoration.",
       src: "assets/img/descriptions/home.jpg",
@@ -140,7 +142,7 @@
       phrases: [["La habitación está decorada con…", "La pièce est décorée avec…"], ["En el centro de la sala…", "Au centre de la pièce…"], ["Hay varios / varias…", "Il y a plusieurs…"]]
     },
     {
-      ids: ["a1-comida", "a1-gustar", "a2-rest", "a2-pron", "b1-imp"],
+      ids: ["a1-comida", "a1-gustar", "a2-rest", "a2-pron", "b1-imp", "a1-func-restaurante", "a2-func-salud", "b1-func-reclamaciones"],
       title: "Tapas servidas en una mesa",
       alt: "Varios platos de tapas preparados para compartir.",
       src: "assets/img/descriptions/tapas.jpg",
@@ -150,7 +152,7 @@
       phrases: [["En la mesa hay…", "Sur la table, il y a…"], ["La comida parece…", "Le repas semble…"], ["Las personas están comiendo…", "Les personnes sont en train de manger…"]]
     },
     {
-      ids: ["a1-ciudad", "a1-estar", "a1-num", "a1-ira", "a2-viajes", "a2-indef", "a2-comp", "b1-porpara"],
+      ids: ["a1-ciudad", "a1-estar", "a1-num", "a1-ira", "a2-viajes", "a2-indef", "a2-comp", "b1-porpara", "a1-func-direcciones", "a2-func-viajes"],
       title: "Una vista urbana de Barcelona",
       alt: "La Torre Glòries destaca sobre los edificios de Barcelona.",
       src: "assets/img/descriptions/city.jpg",
@@ -180,7 +182,7 @@
       phrases: [["El médico está…", "Le médecin est en train de…"], ["El paciente parece…", "Le patient semble…"], ["Creo que…", "Je crois que…"]]
     },
     {
-      ids: ["a2-ger", "a2-ocio"],
+      ids: ["a2-ger", "a2-ocio", "a2-func-experiencias"],
       title: "Un partido de fútbol",
       alt: "Un grupo de jóvenes juega al fútbol en la calle.",
       src: "assets/img/descriptions/football.jpg",
@@ -190,7 +192,7 @@
       phrases: [["Los jugadores están…", "Les joueurs sont en train de…"], ["En el centro de la imagen…", "Au centre de l’image…"], ["Parece un partido…", "On dirait un match…"]]
     },
     {
-      ids: ["a1-pres", "a2-trabajo", "b1-laboral"],
+      ids: ["a1-pres", "a2-trabajo", "b1-laboral", "a1-func-ayuda", "a2-func-citas", "b1-func-trabajo"],
       title: "Una clase en la universidad",
       alt: "Un profesor y varios estudiantes en un aula.",
       src: "assets/img/descriptions/classroom.jpg",
@@ -210,7 +212,7 @@
       phrases: [["En el paisaje hay…", "Dans le paysage, il y a…"], ["El bosque parece…", "La forêt semble…"], ["En el fondo se ven…", "À l’arrière-plan, on voit…"]]
     },
     {
-      ids: ["b1-tec", "b1-fut"],
+      ids: ["b1-tec", "b1-fut", "b1-func-debate"],
       title: "Un ordenador sobre una mesa",
       alt: "Un ordenador portátil junto a unos libros sobre una mesa.",
       src: "assets/img/descriptions/technology.jpg",
@@ -220,7 +222,7 @@
       phrases: [["Sobre la mesa hay…", "Sur la table, il y a…"], ["La persona está usando…", "La personne utilise…"], ["Este dispositivo sirve para…", "Cet appareil sert à…"]]
     },
     {
-      ids: ["a1-irr", "a2-irr", "b1-cultura", "b1-frases"],
+      ids: ["a1-irr", "a2-irr", "b1-cultura", "b1-frases", "b1-func-informacion"],
       title: "Un festival al aire libre",
       alt: "Público reunido en un festival al aire libre.",
       src: "assets/img/descriptions/festival.jpg",
@@ -284,8 +286,8 @@
       const open = levelOpen(L.id), ex = expanded.has(L.id);
       h += `<button class="lvl-h" data-lvl="${L.id}"><img src="${L.img}" alt="">${L.name}<span class="pct">${open ? levelPct(L.id) + "%" : "🔒"} ${ex ? "▾" : "▸"}</span></button>`;
       if (!ex) return;
-      [["g", "Gramática"], ["v", "Vocabulario"]].forEach(([k, n]) => {
-        h += `<h4>${n}</h4>`;
+      [["g", "Gramática"], ["v", "Vocabulario"], ["f", "Functional language"]].forEach(([k, n]) => {
+        h += `<h4>${n}${k === "f" ? '<span class="fr"> · Funciones comunicativas</span>' : ""}</h4>`;
         track(L.id, k).forEach((m, i) => {
           const on = view.id === m.id, ok = modOpen(m);
           h += `<button class="mi ${on ? "on" : ""} ${ok ? "" : "lock"}" data-mod="${m.id}"><span class="ic">${ok ? m.ic : "🔒"}</span>${i + 1}. ${esc(m.t)}${isDone(m) ? '<span class="ok">✓</span>' : ""}</button>`;
@@ -296,6 +298,7 @@
     });
     h += `<h4>Más</h4>
       <button class="mi ${view.name === "progress" ? "on" : ""}" data-go="#/progreso"><span class="ic">📊</span>Mi progreso</button>
+      <button class="mi ${view.name === "printable" ? "on" : ""}" data-go="#/imprimible"><span class="ic">🖨️</span>Cuaderno imprimible</button>
       <button class="mi ${view.name === "settings" ? "on" : ""}" data-go="#/ajustes"><span class="ic">⚙️</span>Ajustes y modo</button>`;
     const nav = $("#nav");
     nav.innerHTML = h;
@@ -335,6 +338,7 @@
       return examIntro(p[1]);
     }
     if (p[0] === "progreso") { view = { name: "progress", lvl: view.lvl }; renderNav(); return progress(); }
+    if (p[0] === "imprimible") { view = { name: "printable", lvl: view.lvl }; renderNav(); return printable(); }
     if (p[0] === "ajustes") { view = { name: "settings", lvl: view.lvl }; renderNav(); return settings(); }
     if (p[0] === "nivel" && levelOf(p[1])) view.lvl = p[1];
     view = { name: "home", lvl: view.lvl || "A1" };
@@ -359,9 +363,9 @@
       h += `<div class="card center"><div class="big-emoji">🔒</div><h2>Nivel bloqueado</h2><p>Aprueba el <b>Examen ${prev.id}</b> (${CONFIG.PASS_EXAM}% o más) para abrir este nivel.<br><span class="fr">Réussissez l’examen ${prev.id} pour débloquer ce niveau.</span></p><button class="btn" data-go="#/examen/${prev.id}">Ir al examen ${prev.id}</button></div>`;
     } else {
       h += `<div class="tracks">`;
-      [["g", "📘 Gramática"], ["v", "🖼️ Vocabulario"]].forEach(([k, n]) => {
+      [["g", "📘 Gramática"], ["v", "🖼️ Vocabulario"], ["f", "💬 Functional language"]].forEach(([k, n]) => {
         const modules = track(L.id, k);
-        h += `<section class="path track-card"><h3>${n}<span>${modules.length} temas</span></h3><div class="lesson-grid">`;
+        h += `<section class="path track-card track-${k}"><h3>${n}<span>${modules.length} temas</span></h3>${k === "f" ? '<p class="track-subtitle">Funciones para comunicarte en situaciones reales · <i class="fr">Des outils pour communiquer dans des situations réelles.</i></p>' : ""}<div class="lesson-grid">`;
         modules.forEach((m, i) => {
           const ok = modOpen(m), d = isDone(m);
           h += `<div class="lesson-node"><button class="node ${k === "v" ? "v" : ""} ${d ? "done" : ""} ${ok ? "" : "lock"}" data-mod="${m.id}" title="${esc(m.t)}" aria-label="${ok ? "Abrir" : "Bloqueado"}: ${esc(m.t)}">${ok ? m.ic : "🔒"}${d ? '<span class="chk">✓</span>' : ""}</button><div class="lab">${i + 1}. ${esc(m.t)}</div></div>`;
@@ -387,7 +391,7 @@
   function modHead(m, tab) {
     const L = levelOf(m.lvl);
     return `<div class="mhead ${m.k}"><div class="ic">${m.ic}</div><div>
-      <span class="tag" style="background:${L.color}">${m.lvl}</span><span class="tag" style="background:${m.k === "g" ? "var(--gd)" : "var(--bd)"}">${m.k === "g" ? "Gramática" : "Vocabulario"}</span>
+      <span class="tag" style="background:${L.color}">${m.lvl}</span><span class="tag" style="background:${m.k === "g" ? "var(--gd)" : m.k === "f" ? "var(--pd)" : "var(--bd)"}">${trackName(m.k)}</span>
       <h1>${esc(m.t)}</h1><div class="fr">${esc(m.fr)}</div></div></div>
       <div class="tabs">${TABS.map(([t, e, l]) => `<button class="tab ${t === tab ? "on" : ""}" data-go="#/m/${m.id}/${t}">${e} ${l}${tabDone(m.id, t) ? ' <span class="d">✓</span>' : ""}</button>`).join("")}</div>`;
   }
@@ -768,6 +772,39 @@
     main().innerHTML = h;
     bind();
     $$("a[data-mod]").forEach(a => a.onclick = ev => { ev.preventDefault(); openMod(a.dataset.mod); });
+  }
+
+  /* ---------- Cuaderno para imprimir ---------- */
+  function printableExercise(e, index) {
+    const prompt = e.q || (e.w ? `Ordena las palabras para formar una frase: ${e.t}` : "Escribe una frase propia.");
+    const choices = Array.isArray(e.o)
+      ? `<ol class="worksheet-options" type="a">${e.o.map(option => `<li>${esc(option)}</li>`).join("")}</ol>`
+      : "";
+    const answer = e.w || (Array.isArray(e.a) ? e.a.join(" / ") : Number.isInteger(e.a) && Array.isArray(e.o) ? e.o[e.a] : Array.isArray(e.a) ? e.a.join(" / ") : e.a);
+    return `<li class="worksheet-exercise"><b>${index + 1}. ${esc(prompt)}</b>${choices}<div class="answer-lines"></div><p class="answer-key"><b>Solución:</b> ${esc(answer === undefined ? "Réponse libre / respuesta personal" : String(answer))}${e.t && !e.w ? ` · ${esc(e.t)}` : ""}</p></li>`;
+  }
+  function printable() {
+    const book = LEVELS.map(level => {
+      const modules = modsOf(level.id);
+      return `<section class="print-level"><h2>${esc(level.name)} <span class="fr">· ${esc(level.fr)}</span></h2>
+        <p>${esc(level.desc)} <span class="fr">${esc(level.descFr)}</span></p>
+        ${modules.map((m, i) => `<article class="print-unit">
+          <header class="print-unit-heading"><span>${esc(level.id)} · ${trackIcon(m.k)} ${esc(trackName(m.k))} · ${i + 1}</span><h2>${esc(m.t)}</h2><p class="fr">${esc(m.fr)}</p></header>
+          <section class="print-theory"><h3>Teoría · Théorie</h3>${m.th}</section>
+          <section class="print-vocabulary"><h3>Vocabulario · Exercice de vocabulaire</h3><p>Escribe en francés la traducción de cada expresión. <span class="fr">Traduis chaque expression en français.</span></p><ol>${m.voc.map(([emoji, word, translation]) => `<li class="worksheet-exercise"><b>${esc(emoji)} ${esc(word)}</b><div class="answer-lines"></div><p class="answer-key"><b>Traducción:</b> ${esc(translation)}</p></li>`).join("")}</ol></section>
+          <section class="print-exercises"><h3>Ejercicios · Exercices</h3><ol>${m.ex.map(printableExercise).join("")}</ol></section>
+        </article>`).join("")}</section>`;
+    }).join("");
+    main().innerHTML = `<div class="print-controls">
+        <h1>🖨️ Cuaderno imprimible <span class="fr">· Cahier à imprimer</span></h1>
+        <p>Teoría y ejercicios reunidos de Gramática, Vocabulario y Functional language. Usa “Imprimir” y selecciona “Guardar como PDF” si quieres un archivo PDF.</p>
+        <label><input id="includeAnswers" type="checkbox"> Incluir soluciones · <span class="fr">Inclure les corrigés</span></label>
+        <div class="row"><button class="btn" id="printNow">🖨️ Imprimir o guardar como PDF</button></div>
+      </div>
+      <div class="print-book"><header class="print-cover"><h1>Camino al Español</h1><h2>Cuaderno A1–B1</h2><p>Gramática · Vocabulario · Functional language</p><p class="fr">Théorie et exercices · Cahier de l’élève</p><p>App creada por Ana Hernández Iranzo</p></header>${book}
+      <footer class="print-cover print-back"><p>Camino al Español · A1–B1</p><p>App creada por Ana Hernández Iranzo</p></footer></div>`;
+    $("#includeAnswers").onchange = ev => main().classList.toggle("print-answers", ev.target.checked);
+    $("#printNow").onclick = () => window.print();
   }
 
   /* ---------- Ajustes y modo ---------- */

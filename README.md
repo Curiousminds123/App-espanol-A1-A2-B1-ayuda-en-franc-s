@@ -10,7 +10,7 @@ Curso interactivo de español para estudiantes de ELE (español como lengua extr
 
 ## ✨ Qué incluye
 
-- **45 módulos completos**: 15 por nivel (8 de gramática + 7 de vocabulario).
+- **60 módulos completos**: 20 por nivel (8 de gramática + 7 de vocabulario + 5 de Functional language).
 - Cada módulo tiene 6 partes:
   - 📘 **Teoría** con tablas, ejemplos traducidos, trucos y errores frecuentes.
   - 🖼️ **Vocabulario**: tarjetas con imagen (emoji) que se giran y se escuchan.
@@ -18,6 +18,8 @@ Curso interactivo de español para estudiantes de ELE (español como lengua extr
   - 📖 **Lectura** con audio, palabras clave subrayadas y preguntas de comprensión.
   - 🗣️ **Expresión oral**: tarjetas con preguntas para responder en voz alta (con reconocimiento de voz en Chrome/Edge).
   - 📷 **Descripción de imágenes**: una fotografía de Wikimedia Commons, vocabulario y expresiones en francés que se pueden mostrar u ocultar, y un espacio para escribir o preparar una descripción oral en español.
+- 💬 **Functional language**: una tercera ruta con expresiones para comunicarse en situaciones reales, desde presentarse y pedir ayuda hasta negociar y expresar opiniones.
+- 🖨️ **Cuaderno imprimible**: teoría reunida y ejercicios de todos los módulos, organizado por nivel. Se puede imprimir o guardar como PDF desde el navegador, con opción para incluir las soluciones.
 - 🏆 **Examen de nivel** al final de A1, A2 y B1 (20 preguntas, aprobado con 70 %).
 - ⭐ XP, 🔥 racha de días y 📊 página de progreso (con exportar/importar progreso).
 - **Dos modos** que el alumno elige al entrar (y puede cambiar en ⚙️ Ajustes):
@@ -26,11 +28,11 @@ Curso interactivo de español para estudiantes de ELE (español como lengua extr
 
 ## 📚 Contenidos
 
-| Nivel | Gramática | Vocabulario |
-|---|---|---|
-| **A1** | Ser y pronombres · Artículos, género y número · Presente regular · Estar y hay · Presente irregular · Verbos reflexivos · Gustar, encantar y doler · Ir a + infinitivo | Saludos · Números, fecha y hora · Familia y amigos · La casa · Comida y bebida · La ciudad y el transporte · Días, meses y el tiempo |
-| **A2** | Ser y estar · Presente irregular · Estar + gerundio · Pretérito perfecto · Pretérito indefinido · Pretérito imperfecto · Pronombres OD/OI · Comparativos y superlativos | Comida y restaurante · Ropa y compras · Viajes y hotel · Salud y cuerpo · Trabajo y estudios · Tiempo libre y deporte · Tiempo y naturaleza |
-| **B1** | Contraste de pasados · Pluscuamperfecto · Por y para · Futuro simple · Condicional · Imperativo · Presente de subjuntivo · Estilo indirecto | Medio ambiente · Tecnología e internet · Sentimientos y personalidad · Medios y noticias · Cultura hispana y fiestas · Frases hechas y coloquiales · Mundo laboral |
+| Nivel | Gramática | Vocabulario | Functional language |
+|---|---|---|---|
+| **A1** | Ser y pronombres · Artículos, género y número · Presente regular · Estar y hay · Presente irregular · Verbos reflexivos · Gustar, encantar y doler · Ir a + infinitivo | Saludos · Números, fecha y hora · Familia y amigos · La casa · Comida y bebida · La ciudad y el transporte · Días, meses y el tiempo | Presentarse · Describir · Pedir en un restaurante · Preguntar y dar direcciones · Pedir ayuda |
+| **A2** | Ser y estar · Presente irregular · Estar + gerundio · Pretérito perfecto · Pretérito indefinido · Pretérito imperfecto · Pronombres OD/OI · Comparativos y superlativos | Comida y restaurante · Ropa y compras · Viajes y hotel · Salud y cuerpo · Trabajo y estudios · Tiempo libre y deporte · Tiempo y naturaleza | Comprar y cambiar artículos · Explicar síntomas · Viajar y resolver imprevistos · Organizar planes · Contar experiencias |
+| **B1** | Contraste de pasados · Pluscuamperfecto · Por y para · Futuro simple · Condicional · Imperativo · Presente de subjuntivo · Estilo indirecto | Medio ambiente · Tecnología e internet · Sentimientos y personalidad · Medios y noticias · Cultura hispana y fiestas · Frases hechas y coloquiales · Mundo laboral | Expresar opiniones · Presentar reclamaciones · Entrevistas profesionales · Resumir información · Debatir y negociar |
 
 ## 🚀 Publicar en GitHub Pages
 
@@ -67,6 +69,7 @@ camino-espanol/
 ├── js/app.js             # lógica de la app (modos, ejercicios, progreso, voz)
 ├── data/                 # CONTENIDOS (editables)
 │   ├── levels.js         # descripción de los niveles
+│   ├── functional-language.js # ruta de funciones comunicativas
 │   ├── a1-gramatica.js   a1-vocabulario.js
 │   ├── a2-gramatica.js   a2-vocabulario.js
 │   └── b1-gramatica.js   b1-vocabulario.js
